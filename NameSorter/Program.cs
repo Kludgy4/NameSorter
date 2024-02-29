@@ -1,5 +1,6 @@
 ﻿namespace NameSorter;
 
+
 public class Program
 {
     public static void Main(string[] args)
@@ -7,7 +8,7 @@ public class Program
         // Check that the right number of arguments have been passed in
         if (args == null || args.Length != 1)
         {
-            Console.WriteLine("usage: NameSorter inputNamesFile");
+            Console.WriteLine("usage: NameSorter relativeInputNamesFilePath");
             return;
         }
 
@@ -16,14 +17,21 @@ public class Program
         StreamReader streamReader = new StreamReader(fileStream);
         
         // Read lines from the file until the end
-        List<String> lines = new List<String>();
+        List<string> lines = new List<string>();
         while (!streamReader.EndOfStream )
         {
-            string line = streamReader.ReadLine();
+            string? line = streamReader.ReadLine();
+            if (line == null) break;
             lines.Add(line);
         }
 
-        Console.WriteLine(args[0]);
+        List<Name> names = lines.ConvertAll<Name>(l => new Name(l));
+        names.Sort();
+        foreach (Name name in names)
+        {
+            Console.WriteLine(name.FullName());
+        }
+        //Console.WriteLine(args[0]);
         return;
     }
 }

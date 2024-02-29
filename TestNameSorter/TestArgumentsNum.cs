@@ -3,7 +3,7 @@ namespace TestNameSorter
     [TestClass]
     public class TestArgumentsNum
     {
-        private const string BadNumArgumentsExpected = "usage: NameSorter inputNamesFile";
+        private const string BadNumArgumentsExpected = "usage: NameSorter relativeInputNamesFilePath";
 
         [TestMethod]
         public void TestOneArgument()
