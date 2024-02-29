@@ -2,11 +2,12 @@
 
 /**
  * 
- * A class that parses names from a given string
+ * A class that parses names from a given string.
+ * ASSUMPTION: All names that will be parsed consist only of "given names" and "last names"
  */
-class Name
+class Name : IComparable<Name>
 {
-    List<String> givenName;
+    List<String> givenNames;
     List<String> lastNames;
 
     /**
@@ -14,31 +15,49 @@ class Name
      * All space separated substrings, apart from the last one, are
      * considered to be "given names". The last substring is the "last name".
      * @param fullName - The string used to create the Name object
-     * 
      */
-    public Name(string fullName)
+    public Name(string fullName) : this(fullName, new DyeAndDurhamNameParsingStrategy())
     {
-        string[] splitName = fullName.Split(" ", 4);
-        
-        if (splitName.Length < 2)
-        {
-            throw new FormatException("Not enough subnames provided");
-        }
-        
-        if (splitName[4].Contains(" "))
-        {
-            throw new FormatException("Too many subnames provided");
-        }
-
-        givenName = new List<string>();
-        givenName.Append(splitName[0]);
-
-        lastNames = new List<string>();
-        for (int i = 1; i < splitName.Length; ++i)
-        {
-            lastNames.Append(splitName[i]);
-        }
+    
     }
 
+    /**
+     * Same as 
+     * 
+     */
+    public Name(string fullName, NameParsingStrategy nameParseStrat)
+    {
+        (givenNames, lastNames) = nameParseStrat.ParseName(fullName);
+    }
 
+    public string FullName()
+    {
+        return string.Join(" ", givenNames) + " " + string.Join(" ", lastNames);
+    }
+
+    public int CompareTo(Name? other)
+    {
+        // Sort broken null names to the end
+        if (other == null) return -1;
+
+        int givenComp = CompareArrays(lastNames, other.lastNames);
+        if (givenComp == 0)
+        {
+            return CompareArrays(givenNames, other.givenNames);
+        }
+        return givenComp;
+    }
+
+    
+    private static int CompareArrays(List<string> arr1, List<string> arr2)
+    {
+        int minSize = Math.Min(arr1.Count, arr2.Count);
+        for (int i = 0; i < minSize; ++i)
+        {
+            int comp = String.Compare(arr1[i], arr2[i]);
+            if (comp != 0) return comp;
+        }
+        // All else being equal, the shorter array should be considered smaller
+        return arr1.Count.CompareTo(arr2.Count);
+    }
 }
