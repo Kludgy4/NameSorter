@@ -27,11 +27,22 @@ public class Program
 
         List<Name> names = lines.ConvertAll<Name>(l => new Name(l));
         names.Sort();
+        
+        // Write the names to stdout
         foreach (Name name in names)
         {
             Console.WriteLine(name.FullName());
         }
-        //Console.WriteLine(args[0]);
+
+        // Write the names to a file
+        string outputFilePath = "sorted-names-list.txt";
+        using (StreamWriter writer = new StreamWriter(outputFilePath))
+        {
+            foreach (Name name in names)
+            {
+                writer.WriteLine(name.FullName());
+            }
+        }
         return;
     }
 }
