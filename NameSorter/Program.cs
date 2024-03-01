@@ -8,8 +8,7 @@ public class Program
         // Check that the right number of arguments have been passed in
         if (args == null || args.Length != 1)
         {
-            Console.WriteLine("usage: NameSorter relativeInputNamesFilePath", System.Console.Error);
-            System.Environment.Exit(1);
+            Console.Error.WriteLine("usage: NameSorter relativeInputNamesFilePath", System.Console.Error);
             return;
         }
 
@@ -23,9 +22,8 @@ public class Program
         }
         catch (Exception e)
         {
-            Console.WriteLine("Unable to open file " + args[0], System.Console.Error);
-            Console.WriteLine(e.Message, System.Console.Error);
-            System.Environment.Exit(2);
+            Console.Error.WriteLine("Unable to open file " + args[0]);
+            Console.Error.WriteLine(e.Message);
             return;
         }
 
@@ -47,9 +45,8 @@ public class Program
         }
         catch (ArgumentOutOfRangeException e)
         {
-            Console.WriteLine("Invalid Name Format", System.Console.Error);
-            Console.WriteLine(e.Message, System.Console.Error);
-            System.Environment.Exit(3);
+            Console.Error.WriteLine("Invalid Name Format", System.Console.Error);
+            Console.Error.WriteLine(e.Message, System.Console.Error);
             return;
         }
 
@@ -72,9 +69,8 @@ public class Program
         }
         catch (Exception e)
         {
-            Console.WriteLine("Unable to open file " + args[0] + " to write sorted names", System.Console.Error);
-            Console.WriteLine(e.Message, System.Console.Error);
-            System.Environment.Exit(4);
+            Console.Error.WriteLine("Unable to open file " + args[0] + " to write sorted names", System.Console.Error);
+            Console.Error.WriteLine(e.Message, System.Console.Error);
             return;
         }
 
