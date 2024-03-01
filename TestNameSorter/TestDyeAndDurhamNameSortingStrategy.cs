@@ -45,11 +45,11 @@ public class TestDyeAndDurhamNameSortingStrategy
     public void TestIdenticalFirstNames()
     {
         List<NameSorter.Name> names = new List<NameSorter.Name> {
-            new NameSorter.Name((["William Henry"], ["Vanderbilt"])),
-            new NameSorter.Name((["William Henry"], ["Harrison"])),
+            new NameSorter.Name((["William Henry"], ["Vanderbilt"])),  // <--
+            new NameSorter.Name((["William Henry"], ["Harrison"])),    // <--
             new NameSorter.Name((["Jeffrey Preston"], ["Jorgensen"])),
             new NameSorter.Name((["Steven Paul"], ["Jobs"])),
-            new NameSorter.Name((["William Henry"], ["Gates"])),
+            new NameSorter.Name((["William Henry"], ["Gates"])),       // <--
             new NameSorter.Name((["Mark Elliot"], ["Zuckerberg"])),
             new NameSorter.Name((["Wilmot Reed"], ["Hastings"])),
             new NameSorter.Name((["Sergey Mikhailovich"], ["Brin"])),
@@ -62,13 +62,13 @@ public class TestDyeAndDurhamNameSortingStrategy
 
         List<NameSorter.Name> namesSorted = new List<NameSorter.Name> {
             new NameSorter.Name((["Sergey Mikhailovich"], ["Brin"])),
-            new NameSorter.Name((["William Henry"], ["Gates"])),
-            new NameSorter.Name((["William Henry"], ["Harrison"])),
+            new NameSorter.Name((["William Henry"], ["Gates"])),       // <--
+            new NameSorter.Name((["William Henry"], ["Harrison"])),    // <--
             new NameSorter.Name((["Wilmot Reed"], ["Hastings"])),
             new NameSorter.Name((["Steven Paul"], ["Jobs"])),
             new NameSorter.Name((["Jeffrey Preston"], ["Jorgensen"])),
             new NameSorter.Name((["Lawrence Edward"], ["Page"])),
-            new NameSorter.Name((["William Henry"], ["Vanderbilt"])),
+            new NameSorter.Name((["William Henry"], ["Vanderbilt"])),  // <--
             new NameSorter.Name((["Mark Elliot"], ["Zuckerberg"])),
         };
 
@@ -79,12 +79,12 @@ public class TestDyeAndDurhamNameSortingStrategy
     public void TestIdenticalLastNames()
     {
         List<NameSorter.Name> names = new List<NameSorter.Name> {
+            new NameSorter.Name((["Shaun"], ["Hastings"])),            // <--
             new NameSorter.Name((["Jeffrey Preston"], ["Jorgensen"])),
             new NameSorter.Name((["Steven Paul"], ["Jobs"])),
             new NameSorter.Name((["William Henry"], ["Gates"])),
             new NameSorter.Name((["Mark Elliot"], ["Zuckerberg"])),
-            new NameSorter.Name((["Shaun"], ["Hastings"])),
-            new NameSorter.Name((["Wilmot Reed"], ["Hastings"])),
+            new NameSorter.Name((["Wilmot Reed"], ["Hastings"])),      // <--
             new NameSorter.Name((["Sergey Mikhailovich"], ["Brin"])),
             new NameSorter.Name((["Lawrence Edward"], ["Page"])),
         };
@@ -95,8 +95,8 @@ public class TestDyeAndDurhamNameSortingStrategy
         List<NameSorter.Name> namesSorted = new List<NameSorter.Name> {
             new NameSorter.Name((["Sergey Mikhailovich"], ["Brin"])),
             new NameSorter.Name((["William Henry"], ["Gates"])),
-            new NameSorter.Name((["Shaun"], ["Hastings"])),
-            new NameSorter.Name((["Wilmot Reed"], ["Hastings"])),
+            new NameSorter.Name((["Shaun"], ["Hastings"])),           // <--
+            new NameSorter.Name((["Wilmot Reed"], ["Hastings"])),     // <--
             new NameSorter.Name((["Steven Paul"], ["Jobs"])),
             new NameSorter.Name((["Jeffrey Preston"], ["Jorgensen"])),
             new NameSorter.Name((["Lawrence Edward"], ["Page"])),
@@ -113,11 +113,11 @@ public class TestDyeAndDurhamNameSortingStrategy
             new NameSorter.Name((["Jeffrey Preston"], ["Jorgensen"])),
             new NameSorter.Name((["Steven Paul"], ["Jobs"])),
             new NameSorter.Name((["William Henry"], ["Gates"])),
-            new NameSorter.Name((["Lawrence Edward Theodore"], ["Page"])),
+            new NameSorter.Name((["Lawrence Edward Theodore"], ["Page"])),  // <--
             new NameSorter.Name((["Mark Elliot"], ["Zuckerberg"])),
             new NameSorter.Name((["Wilmot Reed"], ["Hastings"])),
             new NameSorter.Name((["Sergey Mikhailovich"], ["Brin"])),
-            new NameSorter.Name((["Lawrence Edward"], ["Page"])),
+            new NameSorter.Name((["Lawrence Edward"], ["Page"])),           // <--
         };
 
         var strat = new NameSorter.DyeAndDurhamNameSortingStrategy();
@@ -129,8 +129,8 @@ public class TestDyeAndDurhamNameSortingStrategy
             new NameSorter.Name((["Wilmot Reed"], ["Hastings"])),
             new NameSorter.Name((["Steven Paul"], ["Jobs"])),
             new NameSorter.Name((["Jeffrey Preston"], ["Jorgensen"])),
-            new NameSorter.Name((["Lawrence Edward"], ["Page"])),
-            new NameSorter.Name((["Lawrence Edward Theodore"], ["Page"])),
+            new NameSorter.Name((["Lawrence Edward"], ["Page"])),          // <--
+            new NameSorter.Name((["Lawrence Edward Theodore"], ["Page"])), // <--
             new NameSorter.Name((["Mark Elliot"], ["Zuckerberg"])),
         };
 
@@ -141,10 +141,10 @@ public class TestDyeAndDurhamNameSortingStrategy
     public void TestIdenticalFullNames()
     {
         List<NameSorter.Name> names = new List<NameSorter.Name> {
-            new NameSorter.Name((["William Henry"], ["Gates"])),
+            new NameSorter.Name((["William Henry"], ["Gates"])),          // <--
             new NameSorter.Name((["Jeffrey Preston"], ["Jorgensen"])),
             new NameSorter.Name((["Steven Paul"], ["Jobs"])),
-            new NameSorter.Name((["William Henry"], ["Gates"])),
+            new NameSorter.Name((["William Henry"], ["Gates"])),          // <--
             new NameSorter.Name((["Mark Elliot"], ["Zuckerberg"])),
             new NameSorter.Name((["Wilmot Reed"], ["Hastings"])),
             new NameSorter.Name((["Sergey Mikhailovich"], ["Brin"])),
@@ -157,8 +157,8 @@ public class TestDyeAndDurhamNameSortingStrategy
 
         List<NameSorter.Name> namesSorted = new List<NameSorter.Name> {
             new NameSorter.Name((["Sergey Mikhailovich"], ["Brin"])),
-            new NameSorter.Name((["William Henry"], ["Gates"])),
-            new NameSorter.Name((["William Henry"], ["Gates"])),
+            new NameSorter.Name((["William Henry"], ["Gates"])),         // <--
+            new NameSorter.Name((["William Henry"], ["Gates"])),         // <--
             new NameSorter.Name((["Wilmot Reed"], ["Hastings"])),
             new NameSorter.Name((["Steven Paul"], ["Jobs"])),
             new NameSorter.Name((["Jeffrey Preston"], ["Jorgensen"])),
@@ -167,6 +167,14 @@ public class TestDyeAndDurhamNameSortingStrategy
         };
 
         Assert.IsTrue(compareNameLists(names, namesSorted));
+    }
+
+    [TestMethod]
+    public void TestNoNames()
+    {
+        List<NameSorter.Name> names = new List<NameSorter.Name> {};
+        var strat = new NameSorter.DyeAndDurhamNameSortingStrategy();
+        names.Sort(strat);
     }
 
     private bool compareNameLists(List<NameSorter.Name> l1, List<NameSorter.Name> l2)

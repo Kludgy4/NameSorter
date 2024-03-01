@@ -8,5 +8,5 @@ namespace NameSorter;
 
 interface NameSortingStrategy : IComparer<Name>
 {
-    
+    // Basically a reskin of an interface used to sort a list of names
 }

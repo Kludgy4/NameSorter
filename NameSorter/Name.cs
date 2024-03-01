@@ -79,6 +79,10 @@ public class Name
         }
     }
 
+    /**
+     * Helper function to quickly compare a List of strings for a Compare function.
+     * Used in sorts, this sorts smaller arrays BEFORE big ones
+     */
     private static int CompareArrays(List<string> arr1, List<string> arr2)
     {
         int minSize = Math.Min(arr1.Count, arr2.Count);
