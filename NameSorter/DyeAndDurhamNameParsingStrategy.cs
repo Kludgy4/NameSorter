@@ -18,12 +18,12 @@ public class DyeAndDurhamNameParsingStrategy : NameParsingStrategy
 
         if (splitName.Length < 2)
         {
-            throw new ArgumentOutOfRangeException("Not enough subnames provided");
+            throw new ArgumentOutOfRangeException("Not enough subnames provided: " + fullName);
         }
 
         if (splitName.Length == 4 && splitName[3].Contains(" "))
         {
-            throw new ArgumentOutOfRangeException("Too many subnames provided");
+            throw new ArgumentOutOfRangeException("Too many subnames provided: " + fullName);
         }
 
         List<string> givenNames = new List<string>();
