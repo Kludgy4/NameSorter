@@ -1,4 +1,6 @@
 # Name Sorter
+[![Run Tests](https://github.com/Kludgy4/NameSorter/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Kludgy4/NameSorter/actions/workflows/dotnet-desktop.yml)
+
 The code in this repository is for the Dye and Durham Coding Assessment. It's written in C# with .NET (Assumedly Core?) compiling to run as a command line utility. The code tries to:
 - Be empathetic to other team members
 - Use SOLID principles
